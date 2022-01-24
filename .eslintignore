@@ -1,5 +1,6 @@
 *.svg
 *.css
+*.config.js
 
 node_modules/
 
