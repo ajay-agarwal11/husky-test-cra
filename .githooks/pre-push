@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 const { exec } = require('child_process');
+console.log('Checking for coverage');
 exec('npm run test:coverage', (error, stdout, stderr) => {
   if (error) {
     console.log(`error: ${error.message}`);
@@ -12,3 +13,4 @@ exec('npm run test:coverage', (error, stdout, stderr) => {
   }
   console.log(`stdout: ${stdout}`);
 });
+console.log('Coverage test passed, pushing branch...');
