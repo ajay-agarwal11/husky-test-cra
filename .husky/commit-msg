@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
-console.log(process.argv);
-const fs = require('fs');
-const message = fs.readFileSync(process.argv[2], 'utf8').trim();
-console.log(message);
+// console.log(process.argv);
+// const fs = require('fs');
+// const message = fs.readFileSync(process.argv[2], 'utf8').trim();
+// console.log(message);
 // console.log('rejecting commit');
 // process.exit(1);
