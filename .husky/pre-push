@@ -1,15 +1,26 @@
 #!/usr/bin/env node
 
-const { exec } = require('child_process');
+const { execSync } = require('child_process');
 console.log('Checking for coverage');
-exec('npm run lint', (error, stdout, stderr) => {
+execSync('npm run lint', (error, stdout, stderr) => {
   if (error || stderr) {
     console.log(`Error: ${error.message}`);
     console.log(` stderror: ${stderr.message}`);
+    console.log(`Success: ${stdout}`);
     console.log('Coverage test check failed, rejecting push...');
     process.exit(1);
   }
   console.log(`Success: ${stdout}`);
-  console.log('Coverage test passed, pushing branch...');
-  process.exit(0);
 });
+execSync('npm run test:coverage', (error, stdout, stderr) => {
+  if (error || stderr) {
+    console.log(`Error: ${error.message}`);
+    console.log(` stderror: ${stderr.message}`);
+    console.log(`Success: ${stdout}`);
+    console.log('Coverage test check failed, rejecting push...');
+    process.exit(1);
+  }
+  console.log(`Success: ${stdout}`);
+});
+console.log('Coverage test passed, pushing branch...');
+process.exit(0);
