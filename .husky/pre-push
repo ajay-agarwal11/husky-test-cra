@@ -2,7 +2,7 @@
 
 const { exec } = require('child_process');
 console.log('Checking for coverage');
-exec('npm run test:coverage', (error, stdout, stderr) => {
+exec('npm run lint', (error, stdout, stderr) => {
   if (error || stderr) {
     console.log(`Error: ${error.message}`);
     console.log(` stderror: ${stderr.message}`);
